@@ -2,11 +2,40 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Events!{% endblock %}</title>
+
+        <link href="{{ asset('./build/css/app.css') }}" rel="stylesheet" crossorigin="anonymous">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <span class="navbar-brand">Menú</span>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ path('list_events')}}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ path('new_events')}}">Crear Registro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ path('bi')}}">BI</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        <script src="{{ asset("./js/index.js") }}" type="module"></script>
+        <script src="{{ asset('./build/app.js') }}" type="module"></script>
+        {% endblock %}
+        {% block footer %}
+        <div class="text-center m-4">Desarrollador por Julio Andrés Barrera</div>
+        {% endblock %}
     </body>
 </html>

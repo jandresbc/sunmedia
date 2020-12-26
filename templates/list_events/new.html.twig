@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New EventsUsers{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Create new Event</h1>
+
+    <div class='container-fluid text-center'>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+    </div>
+
+    <a href="{{ path('list_events') }}">Volver a la lista</a>
+{% endblock %}
